@@ -1,17 +1,23 @@
 import { useState } from 'react';
 import reviews from './data';
-import { FaBeer } from 'react-icons/fa';
+// React icons import
+import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa6';
 
 const App = () => {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0
+    
+  );
 
   const { id, name, job, image, text } = reviews[index];
 
   return (
-    <div>
-      <h2>Reviews Starter</h2>
-      <FaBeer className="beer" />
-    </div>
+    <main>
+      <article className="review">
+        <div className="img-container">
+          <img src={image} alt={name} className="person-img" />
+        </div>
+      </article>
+    </main>
   );
 };
 export default App;
