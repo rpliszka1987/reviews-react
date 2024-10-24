@@ -8,24 +8,27 @@ const App = () => {
 
   const { name, job, image, text } = reviews[index];
 
+  const checkNumber = (number) => {
+    if (number > reviews.length - 1) {
+      return 0;
+    }
+    if (number < 0) {
+      return reviews.length - 1;
+    }
+    return number;
+  };
+
   const nextPerson = () => {
     setIndex((currentIndex) => {
       const newIndex = currentIndex + 1;
-      if (newIndex > reviews.length - 1) {
-        return 0;
-      }
-
-      return newIndex;
+      return checkNumber(newIndex);
     });
   };
 
   const prevPerson = () => {
     setIndex((currentIndex) => {
       const newIndex = currentIndex - 1;
-      if (newIndex < 0) {
-        return reviews.length - 1;
-      }
-      return newIndex;
+      return checkNumber(newIndex);
     });
   };
 
